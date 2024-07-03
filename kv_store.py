@@ -3,7 +3,7 @@ class KeyValueStore:
     def __init__(self):
         self.store = {}
     
-    def set(self, key, value):
+    def setval(self, key, value):
         self.store[key] = value
         return True
     

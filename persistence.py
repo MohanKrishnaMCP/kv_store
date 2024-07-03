@@ -21,7 +21,7 @@ class PersistentKeyValueStore(keyValueStore):
         with open(self.filename, "w") as f:
             json.dump(self.store, f)
     
-    def set(self, key, value):
+    def setval(self, key, value):
         super().set(key, value)
         self.save()
     
