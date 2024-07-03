@@ -3,8 +3,9 @@
 #when server kv_store starts/restarts - load the file data to memory, so that data is not lost
 
 import json
+from kv_store import KeyValueStore
 
-class PersistentKeyValueStore(keyValueStore):
+class PersistentKeyValueStore(KeyValueStore):
     def __init__(self, filename='db.json'):
         super().__init__()
         self.filename = filename
@@ -22,7 +23,7 @@ class PersistentKeyValueStore(keyValueStore):
             json.dump(self.store, f)
     
     def setval(self, key, value):
-        super().set(key, value)
+        super().setval(key, value)
         self.save()
     
     def delete(self, key):
